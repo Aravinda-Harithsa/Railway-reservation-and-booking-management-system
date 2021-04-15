@@ -1,11 +1,14 @@
-# Railway reservation and booking management System 
-
-* Railway reservation system using C language and Concepts of Data Structure like Linked lists, stacks Queues  with file Handling and database
-* In the Railway reservation system we have  developed a platform to make the reservation system more efficient and bug free . It explains the systematic procedure of railway reservation in Indian railways . 
-
-### Key Features 
+# Railway Booking Management 
 
 
+# Introduction:-
 
-• Search for a train: It enables the user to search for the trains from his source to the destination of travel. • Check seat availability: It enables the user to check the availability of the seats for a train before booking the ticket. 
+Used Concepts of data structures : Linked lists, stacks Queues, to build a basic Railway Reservation System in C Programming language. If the reservation is full, prompt reservation full!! Put them in waiting list (queue) and give a waiting list number. If a passenger wishes to cancel his ticket, he may cancel. Then the passenger in waiting list is booked automatically.
+
+
+**Steps :** 
+
+1. Build the Main.c file 
+2. Run the exe file 
+3. Choose relevant options and verify all details 
 

@@ -1,60 +1,44 @@
-# Name of the project
-PROJECT_NAME = Calculator
+PROJECT_NAME = Railway_Ticket_Booking_System
+TEST_NAME=TEST_$(PROJECT_NAME)
+EXECUTE =   SRC/Resrervation_Swr.c unity/unity.c 
+TEST_CASE= Test/test.c unity/unity.c
+ASPECT=coverage_$(PROJECT_NAME)
 
-# Output directory
-BUILD = build
+#This will be used to check the OS which the System is running ON 
+ifdef OS
+	RM = del /q
+	FixPath=$(subst /,\,$1)
+	EXEC=exe
+	editor=notepad
+else
+	ifeq ($(shell uname), Linux)
+		RM=rm -rf
+		FixPath=$1
+			EXEC=out
+			editor=cat
+	endif
+endif
 
-# All source code files
-SRC = project_main.c\
-src/calculator_operations.c
 
-# All test source files
-TEST_SRC = src/calculator_operations.c\
-test/test_calculator_operations.c\
-unity/unity.c\
+.PHONY : all test coverage run clean doc
 
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
+$(PROJECT_NAME) : $(SRC) 
+	gcc SRC/Resrervation_Swr.c  -I -c $(EXECUTE) -o $(call  FixPath,$(PROJECT_NAME).$(EXEC))
+run: $(PROJECT_NAME)
+	./$(PROJECT_NAME).$(EXEC)
+test:
+	gcc Test/test.c -I -c unity/unity.c -o Test/$(TEST_NAME).$(EXEC)
+	./Test/$(TEST_NAME).$(EXEC)
+coverage:$(SRC)
+		gcc -fprofile-arcs -ftest-coverage SRC/Resrervation_Swr.c -I -c $(EXECUTE) -o $(ASPECT).$(EXEC)
+		./$(ASPECT).$(EXEC)
+		gcov -a SRC/Resrervation_Swr.c
+		$(editor) SRC/Resrervation_Swr.c.gcov
 
-# All include folders with header files
-INC	= -Iinc\
--Iunity\
-
-#Library Inlcudes
-#INCLUDE_LIBS = 
-INCLUDE_LIBS = -lcunit
-
-# Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
-
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
-
-# Default target built
-$(PROJECT_NAME):all
-
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all
-
-all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
-
-# Call `make run` to run the application
-run:$(PROJECT_NAME)
-	./$(PROJECT_OUTPUT).out
-
-# Document the code using Doxygen
-doc:
-	make -C ./documentation
-
-# Build and run the unit tests
-test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-
-# Remove all the built files, invoke by `make clean`
 clean:
-	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
+	$(RM) *.$(EXEC)
+	$(RM) *.gcn
+	$(RM) *.gcov
+	$(RM) *.gcda
+	$(RM) *.gcno
 
-# Create new build folder if not present
-$(BUILD):
-	mkdir build

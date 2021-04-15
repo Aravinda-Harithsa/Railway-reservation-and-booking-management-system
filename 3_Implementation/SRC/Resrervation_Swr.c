@@ -1,8 +1,23 @@
 /**********************************************PREPROCESSORS**********************************************************/
-#include<stdio.h>
-#include<conio.h>
-#include<stdlib.h>
-#include<string.h>
+#ifdef __linux__ 
+    #include<stdio.h>
+	#include<stdlib.h>
+	#include<string.h>
+	#include "linuxconio.h"
+	#include "linconio.h"
+#elif _WIN32
+    #include<stdio.h>
+	#include<conio.h>
+	#include<stdlib.h>
+	#include<string.h>
+	#else
+#endif
+
+
+
+
+
+
 
 /*******************************************GLOBAL VARIABLES**********************************************************/
 //ALl the globle variables and the composite data types will be declared here
@@ -50,7 +65,7 @@ int main()
 	    
 	printf(" \n Press any key to continue:");
 	
-	getch();	
+	getchar();	
     system("cls");
 	login();
 	int menu_choice,choice_return;
@@ -77,7 +92,7 @@ int main()
 		case 2:
 			viewdetails();
 			printf("\n\nPress any key to go to Main Menu..");
-			getch();
+			getchar();
 			break;
 		case 3:
 			cancel();
@@ -135,7 +150,7 @@ void reservation(void)
 	printf("\nEnter Number of seats:> ");
 	scanf("%d",&passdetails.num_of_seats);
 	printf("\n\n>>Press Enter To View Available Trains<< ");
-	getch();
+	getchar();
 	system("cls");
 	viewdetails();
 	printf("\n\nEnter train number:> ");
@@ -175,7 +190,7 @@ void reservation(void)
 		}
 	}
 	fclose(fp);
-	getch();
+	getchar();
 }
 
 /*********************************************CHARGE()*************************************************/
@@ -323,7 +338,7 @@ void login()
 	printf(" \n                       ENTER PASSWORD:-");
 	while(i<10)
 	{
-	    pword[i]=getch();
+	    pword[i]=getchar();
 	    c=pword[i];
 	    if(c==13) break;
 	    else printf("*");
@@ -337,7 +352,7 @@ void login()
 	{
 	printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
 	printf("\n\n\n\t\t\t\tPress any key to continue...");
-	getch();//holds the screen
+	getchar();//holds the screen
 	break;
 	}
 	else
@@ -345,7 +360,7 @@ void login()
 		printf("\n        SORRY !!!!  LOGIN IS UNSUCESSFUL");
 		a++;
 		
-		getch();//holds the screen
+		getchar();//holds the screen
 		system("cls");
 	}
 }
@@ -354,7 +369,7 @@ void login()
 	{
 		printf("\nSorry you have entered the wrong username and password for four times!!!");
 		
-		getch();
+		getchar();
 		
 		}
 		system("cls");	
@@ -388,7 +403,7 @@ void cancel(void)   /* Sorry this function does not work. Coding is not complete
 		fflush(stdin);
 		scanf("%i",&trainnum);
 		printf("\n\nCancelled");  
-		getch();
+		getchar();
 }
 
 

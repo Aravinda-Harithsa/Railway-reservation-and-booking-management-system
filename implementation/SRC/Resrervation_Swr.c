@@ -1,17 +1,11 @@
 /**********************************************PREPROCESSORS**********************************************************/
-#ifdef __linux__
+
+
+
     #include<stdio.h>
+
 	#include<stdlib.h>
 	#include<string.h>
-	#include "linuxconio.h"
-	#include "linconio.h"
-#elif _WIN32
-    #include<stdio.h>
-	#include<conio.h>
-	#include<stdlib.h>
-	#include<string.h>
-	#else
-#endif
 
 
 

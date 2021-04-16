@@ -1,5 +1,5 @@
 /**********************************************PREPROCESSORS**********************************************************/
-#ifdef __linux__ 
+#ifdef __linux__
     #include<stdio.h>
 	#include<stdlib.h>
 	#include<string.h>
@@ -34,8 +34,8 @@ typedef struct{
 //function prototypes to be used
 void reservation(void);							//main reservation function
 void viewdetails(void);							//view details of all the trains
-void cancel(void);								
-void printticket(char name[],int,int,float);	//print ticket 
+void cancel(void);
+void printticket(char name[],int,int,float);	//print ticket
 void specifictrain(int);						//print data related to specific train
 float charge(int,int);							//charge automatically w.r.t number of seats and train
 void login();
@@ -48,7 +48,7 @@ void login();
 int main()
 
 {
-		system("cls"); 
+		system("cls");
 	printf("\t\t=================================================\n");
 	printf("\t\t|                                               |\n");
 	printf("\t\t|        -----------------------------          |\n");
@@ -61,13 +61,12 @@ int main()
 	printf("\t\t|           |          SWR   |                  |\n");
 	printf("\t\t|                                               |\n");
 	printf("\t\t=================================================\n\n\n");
-		
-	    
+
+
 	printf(" \n Press any key to continue:");
-	
-	getchar();	
+
+	getchar();
     system("cls");
-	login();
 	int menu_choice,choice_return;
 	start:
 	system("cls");
@@ -110,12 +109,12 @@ int main()
 /*********************************************VIEWDETAILS()*************************************************/
 
 //The function is yet not completed, need more details to be added!
-//timings of the trains are still missing 
+//timings of the trains are still missing
 
 void viewdetails(void)
 {
 	system("cls");
-	printf("-----------------------------------------------------------------------------");	
+	printf("-----------------------------------------------------------------------------");
 	printf("\nTr.No\tName\t\t\tDestinations\t\tCharges\t\tTime\n");
 	printf("-----------------------------------------------------------------------------");
 	printf("\n1001\tRed Lines Express\tBoston to Manhattan\tRs.5000\t\t9am");
@@ -124,11 +123,11 @@ void viewdetails(void)
 	printf("\n1004\tLA City Express\t\tL.A To Boston\t\tRs.4500\t\t11am");
 	printf("\n1005\tIron City Express\tBoston To Chicago\tRs.4000\t\t7am");
 	printf("\n1006\tIron City Express\tChicago To Boston\tRs.4000\t\t9.30am");
-    printf("\n1007\tKeystone Express\tBoston To Washington\tRs.3500\t\t1pm");	
+    printf("\n1007\tKeystone Express\tBoston To Washington\tRs.3500\t\t1pm");
     printf("\n1008\tKeystone Express\tWashington To Boston\tRs.3500\t\t4pm");
     printf("\n1009\tMeteor Express\t\tBoston To Miami\t\tRs.6000\t\t3.35pm");
     printf("\n1009\tMeteor Express\t\tMiami To Boston\t\tRs.6000\t\t4.15pm");
-    
+
 }
 
 /*********************************************RESERVATION()*************************************************/
@@ -142,11 +141,11 @@ void reservation(void)
 	FILE *fp;
 	fp=fopen("seats_reserved.txt","a");
 	system("cls");
-	
+
 	printf("\nEnter Your Name:> ");
 	fflush(stdin);
 	gets(passdetails.name);
-	//error here have to take input of the name 
+	//error here have to take input of the name
 	printf("\nEnter Number of seats:> ");
 	scanf("%d",&passdetails.num_of_seats);
 	printf("\n\n>>Press Enter To View Available Trains<< ");
@@ -159,14 +158,14 @@ void reservation(void)
 	if(passdetails.train_num>=1001 && passdetails.train_num<=1010)
 	{
 		charges=charge(passdetails.train_num,passdetails.num_of_seats);
-		printticket(passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);		
+		printticket(passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);
 	}
 	else
 	{
 		printf("\nInvalid train Number! Enter again--> ");
 		goto start1;
 	}
-	
+
 	printf("\n\nConfirm Ticket (y/n):>");
 	start:
 	scanf(" %c",&confirm);
@@ -259,7 +258,7 @@ void printticket(char name[],int num_of_seats,int train_num,float charges)
 
 void specifictrain(int train_num)
 {
-	
+
 	if (train_num==1001)
 	{
 		printf("\nTrain:\t\t\tRed Lines Express");
@@ -322,58 +321,6 @@ void specifictrain(int train_num)
 	}
 }
 
-void login()
-{
-	int a=0,i=0;
-    char uname[10],c=' '; 
-    char pword[10],code[10];
-    char user[10]="user";
-    char pass[10]="pass";
-    do
-{
-	
-    printf("\n  =======================  LOGIN FORM  =======================\n  ");
-    printf(" \n                       ENTER USERNAME:-");
-	scanf("%s", &uname); 
-	printf(" \n                       ENTER PASSWORD:-");
-	while(i<10)
-	{
-	    pword[i]=getchar();
-	    c=pword[i];
-	    if(c==13) break;
-	    else printf("*");
-	    i++;
-	}
-	pword[i]='\0';
-	//char code=pword;
-	i=0;
-	//scanf("%s",&pword); 
-		if(strcmp(uname,"user")==0 && strcmp(pword,"pass")==0)
-	{
-	printf("  \n\n\n       WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL");
-	printf("\n\n\n\t\t\t\tPress any key to continue...");
-	getchar();//holds the screen
-	break;
-	}
-	else
-	{
-		printf("\n        SORRY !!!!  LOGIN IS UNSUCESSFUL");
-		a++;
-		
-		getchar();//holds the screen
-		system("cls");
-	}
-}
-	while(a<=2);
-	if (a>2)
-	{
-		printf("\nSorry you have entered the wrong username and password for four times!!!");
-		
-		getchar();
-		
-		}
-		system("cls");	
-}
 
 void cancel(void)   /* Sorry this function does not work. Coding is not completed. Codes have been removed due to some errors  */
 {
@@ -402,11 +349,11 @@ void cancel(void)   /* Sorry this function does not work. Coding is not complete
 			printf("-----------------------\n");
 		fflush(stdin);
 		scanf("%i",&trainnum);
-		printf("\n\nCancelled");  
+		printf("\n\nCancelled");
 		getchar();
 }
 
 
-              
+
 
 

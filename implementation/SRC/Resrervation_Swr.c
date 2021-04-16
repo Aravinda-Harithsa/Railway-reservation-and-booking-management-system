@@ -165,7 +165,7 @@ void reservation(void)
 	scanf(" %c",&confirm);
 	if(confirm == 'y')
 	{
-		fprintf(fp,"%s\t\t%d\t\t%d\t\t%.2f\n",&passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);
+		fprintf(fp,"%s\t\t%d\t\t%d\t\t%.2f\n",passdetails.name,passdetails.num_of_seats,passdetails.train_num,charges);
 		printf("==================");
 		printf("\n Reservation Done\n");
 		printf("==================");

@@ -1,15 +1,8 @@
-#ifdef __linux__ 
+
     #include<stdio.h>
 	#include<stdlib.h>
 	#include<string.h>
-	#include "linuxconio.h"
-#elif _WIN32
-    #include<stdio.h>
-	#include<conio.h>
-	#include<stdlib.h>
-	#include<string.h>
-	#else
-#endif
+
 
 
 
@@ -966,7 +959,7 @@ int main(){
 				ps='a';l=0;ps2=0;
 				while(ps2!=13)
 					 {
-					  ps = getch();
+					  ps = getchar();
 					  ps2=ps;
 					 if(ps2==13){pass[l]='\0';l=13;}
 					  if(l!=13){

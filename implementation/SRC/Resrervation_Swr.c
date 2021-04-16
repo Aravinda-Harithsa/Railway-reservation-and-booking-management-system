@@ -138,7 +138,7 @@ void reservation(void)
 
 	printf("\nEnter Your Name:> ");
 	fflush(stdin);
-	gets(passdetails.name);
+	scanf("%s",&passdetails.name);
 	//error here have to take input of the name
 	printf("\nEnter Number of seats:> ");
 	scanf("%d",&passdetails.num_of_seats);

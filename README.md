@@ -8,20 +8,20 @@
 
 Cppcheck-action :
 
-[![cppcheck-action](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/cppcheck.yml/badge.svg)](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/cppcheck.yml)
+[![cppcheck-action](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/cppcheck.yml/badge.svg)]
 
 Unit Testing :
 
-[![Unit Testing - Unity](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Unit-Testing.yml/badge.svg)](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Unit-Testing.yml)
+[![Unit Testing - Unity](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Unit-Testing.yml/badge.svg)]
 
 C/C++ :
 
-[![C/C++ CI](https://github.com/swati-tupat/LTTS_Project/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/c-cpp.yml)
+[![C/C++ CI](https://github.com/swati-tupat/LTTS_Project/actions/workflows/c-cpp.yml/badge.svg)]
 
 
 Valgrind_Check :
 
-[![Valgrind_Check](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Valgrind_Check.yml/badge.svg)](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Valgrind_Check.yml)
+[![Valgrind_Check](https://github.com/Aravinda-Harithsa/Railway-reservation-and-booking-management-system/blob/main/.github/workflows/Valgrind_Check.yml/badge.svg)]
 
 
 

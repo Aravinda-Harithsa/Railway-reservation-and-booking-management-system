@@ -7,7 +7,7 @@ void printticket(char name[],int num_of_seats,int train_num,float charges)
 {
 	printf("\e[1;1H\e[2J");
 	printf("-------------------\n");
-	printf("\tTICKET DETAILS ARE AS FOLLOWS\n");
+	printf("\tTICKET DETAILS ARE AS FOLLOWS !!\n");
 	printf("-------------------\n\n");
 	printf("Name:\t\t\t%s",name);
 	printf("\nNumber Of Seats:\t%d",num_of_seats);

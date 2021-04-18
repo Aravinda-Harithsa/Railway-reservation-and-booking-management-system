@@ -1,6 +1,6 @@
 PROJECT_NAME = IRCTC
 TEST_NAME=TEST_$(PROJECT_NAME)
-FILE_LIST = SRC/Authentication.c SRC/BookedTickets.c SRC/Cancellation.c SRC/printticket.c SRC/Reserve.c SRC/TicketDatabaseDisplay.c SRC/TicketSearch.c SRC/TrainDetailsList.c SRC/TrainList.c unity/unity.c 
+FILE_LIST = SRC/Authentication.c SRC/BookedTickets.c SRC/Cancellation.c SRC/PrintTicket.c SRC/Reserve.c SRC/TicketDatabaseDisplay.c SRC/TicketSearch.c SRC/TrainDetailsList.c SRC/TrainList.c unity/unity.c 
 TEST_CASE= Test/test.c unity/unity.c
 COVERAGE_NAME=coverage_$(PROJECT_NAME)
 

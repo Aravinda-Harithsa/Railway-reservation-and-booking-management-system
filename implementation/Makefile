@@ -1,10 +1,9 @@
-PROJECT_NAME = Railway_Ticket_Booking_System
+PROJECT_NAME = IRCTC
 TEST_NAME=TEST_$(PROJECT_NAME)
-EXECUTE =   SRC/Resrervation_Swr.c unity/unity.c 
+FILE_LIST = SRC/Authentication.c SRC/BookedTickets.c SRC/Cancellation.c SRC/printticket.c SRC/Reserve.c SRC/TicketDatabaseDisplay.c SRC/TicketSearch.c SRC/TrainDetailsList.c SRC/TrainList.c unity/unity.c 
 TEST_CASE= Test/test.c unity/unity.c
-ASPECT=coverage_$(PROJECT_NAME)
+COVERAGE_NAME=coverage_$(PROJECT_NAME)
 
-#This will be used to check the OS which the System is running ON 
 ifdef OS
 	RM = del /q
 	FixPath=$(subst /,\,$1)
@@ -23,17 +22,17 @@ endif
 .PHONY : all test coverage run clean doc
 
 $(PROJECT_NAME) : $(SRC) 
-	gcc SRC/Resrervation_Swr.c  -I -c $(EXECUTE) -o $(call  FixPath,$(PROJECT_NAME).$(EXEC))
+	gcc SRC/Main.c  -I -c $(FILE_LIST) -o $(call  FixPath,$(PROJECT_NAME).$(EXEC))
 run: $(PROJECT_NAME)
 	./$(PROJECT_NAME).$(EXEC)
 test:
 	gcc Test/test.c -I -c unity/unity.c -o Test/$(TEST_NAME).$(EXEC)
 	./Test/$(TEST_NAME).$(EXEC)
 coverage:$(SRC)
-		gcc -fprofile-arcs -ftest-coverage SRC/Resrervation_Swr.c -I -c $(EXECUTE) -o $(ASPECT).$(EXEC)
-		./$(ASPECT).$(EXEC)
-		gcov -a SRC/Resrervation_Swr.c
-		$(editor) SRC/Resrervation_Swr.c.gcov
+		gcc -fprofile-arcs -ftest-coverage SRC/Main.c -I -c $(FILE_LIST) -o $(COVERAGE_NAME).$(EXEC)
+		./$(COVERAGE_NAME).$(EXEC)
+		gcov -a Main.c
+		$(editor) Main.c.gcov
 
 clean:
 	$(RM) *.$(EXEC)

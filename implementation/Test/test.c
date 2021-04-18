@@ -1,24 +1,23 @@
 #include<stdio.h>
 #include "../unity/unity.h"
 #include "../unity/unity_internals.h"
-void setUp(){}
-void tearDown(){}
-char Status_tt;
-void booking_file_check(void)
+
+char confirm;
+void check(void)
 {
-    TEST_ASSERT_EQUAL('f',Status_tt);
+    TEST_ASSERT_EQUAL('y',confirm);
 }
 
 int main(){
     FILE *fp;
-	fp=fopen("seats_reserved.txt","r");
+	fp=fopen("SRC/Reservation_database.txt","r");
      if(fp == NULL)
     {
-        Status_tt='f';
+        confirm='n';
     }else{
-        Status_tt='e';
+        confirm='y';
     }
     UNITY_BEGIN();
-    RUN_TEST(booking_file_check);
+    RUN_TEST(check);
     return UNITY_END();
 }

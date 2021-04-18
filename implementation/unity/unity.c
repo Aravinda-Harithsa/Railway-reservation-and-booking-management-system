@@ -77,6 +77,10 @@ static const char PROGMEM UnityStrDetail2Name[]            = " " UNITY_DETAIL2_N
 
 /*-----------------------------------------------*/
 /* Local helper function to print characters. */
+void setUp (void) {} /* Is run before every test, put unit init calls here. */
+void tearDown (void) {} /* Is run after every test, put unit clean-up calls here. */
+
+
 static void UnityPrintChar(const char* pch)
 {
     /* printable characters plus CR & LF are printed */
